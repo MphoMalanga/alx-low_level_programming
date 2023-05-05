@@ -1,50 +1,51 @@
 #include "main.h"
 #include <stdio.h>
+#include <ctype.h>
 
 /**
- * print_buffer - prints buffer
- * @b: buffer
- * @size: size
+ * print_buffer - prints a buffer 10 bytes per line
+ * @b: the buffer to print
+ * @size: the number of bytes to print
+ *
  * Return: void
  */
-
 void print_buffer(char *b, int size)
 {
-	int o, j, i;
+    int i, j;
 
-	o = 0;
+    if (size <= 0)
+    {
+        printf("\n");
+        return;
+    }
 
-	if (size <= 0)
-	{
-		printf("\n");
-		return;
-	}
-	while (o < size)
-	{
-		j = size - o < 10 ? size - o : 10;
-		printf("%08x: ", o);
-		for (i = 0; i < 10; i++)
-		{
-			if (i < j)
-				printf("%02x", *(b + o + i));
-			else
-				printf("  ");
-			if (i % 2)
-			{
-				printf(" ");
-			}
-		}
-		for (i = 0; i < j; i++)
-		{
-			int c = *(b + o + i);
+    for (i = 0; i < size; i += 10)
+    {
+        printf("%08x: ", i);
 
-			if (c < 32 || c > 132)
-			{
-				c = '.';
-			}
-			printf("%c", c);
-		}
-		printf("\n");
-		o += 10;
-	}
+        for (j = 0; j < 10; j++)
+        {
+            if (i + j < size)
+                printf("%02x", (unsigned char)b[i + j]);
+            else
+                printf("  ");
+
+            if (j % 2 == 1)
+                printf(" ");
+        }
+
+        for (j = 0; j < 10; j++)
+        {
+            if (i + j < size)
+            {
+                char c = b[i + j];
+                if (isprint(c))
+                    printf("%c", c);
+                else
+                    printf(".");
+            }
+        }
+
+        printf("\n");
+    }
 }
