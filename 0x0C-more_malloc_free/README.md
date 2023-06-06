@@ -3,7 +3,9 @@ C - More malloc, free
 TASKS
 		
 0. Trust no one
+		
 Write a function that allocates memory using malloc.
+		
 Prototype: void *malloc_checked(unsigned int b);
 Returns a pointer to the allocated memory
 if malloc fails, the malloc_checked function should cause normal process termination with a status value of 98
@@ -23,7 +25,7 @@ The _calloc function allocates memory for an array of nmemb elements of size byt
 The memory is set to zero
 If nmemb or size is 0, then _calloc returns NULL
 If malloc fails, then _calloc returns NULL
-
+		
 3. array_range
 Write a function that creates an array of integers.
 Prototype: int *array_range(int min, int max);
@@ -33,7 +35,6 @@ If min > max, return NULL
 If malloc fails, return NULL
 		
 4. realloc
-
 Write a function that reallocates a memory block using malloc and free
 Prototype: void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 where ptr is a pointer to the memory previously allocated with a call to malloc: malloc(old_size)
@@ -45,7 +46,7 @@ If ptr is NULL, then the call is equivalent to malloc(new_size), for all values 
 If new_size is equal to zero, and ptr is not NULL, then the call is equivalent to free(ptr). Return NULL
 Don’t forget to free ptr when it makes sense
 		
-5. We must accept finite disappointment, but never lose infinite hope		
+5. We must accept finite disappointment, but never lose infinite hope
 Write a program that multiplies two positive numbers.
 Usage: mul num1 num2
 num1 and num2 will be passed in base 10
