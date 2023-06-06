@@ -8,4 +8,3 @@
         call printfmov eax, 0
         return
 format: db 'Hello, Holberton\n' ,0        
-            
