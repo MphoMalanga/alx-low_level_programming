@@ -1,4 +1,3 @@
-@@ -0,0 +1,42 @@
 /**
  * *malloc_checked - program startup
  * @s1: first char being evaluated
